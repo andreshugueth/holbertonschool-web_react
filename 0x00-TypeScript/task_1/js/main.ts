@@ -41,3 +41,37 @@ const printTeacher: printTeacherFunction = (firstName: string, lastName: string)
 };
 
 console.log(printTeacher("Peter", "Parker"));
+
+// Task 4
+interface Student {
+  firstName: string;
+  lastName: string;
+}
+
+interface ClassRoom extends Student {
+  workOnHomework: () => string;
+  displayName: () => string;
+}
+
+class StudentClass implements ClassRoom {
+
+  public firstName: string;
+  public lastName: string;
+
+  constructor({ firstName, lastName }: Student) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+let classroom = new StudentClass({ firstName: "John", lastName: "Doe" });
+console.log(classroom.displayName());
+
