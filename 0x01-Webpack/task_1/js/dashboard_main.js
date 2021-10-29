@@ -1,7 +1,7 @@
 import $ from "jquery";
-const _ = require("lodash");
+import _ from "lodash";
 
-const body = $("body")
+const body = $("body");
 let count = 0;
 
 function updateCounter() {
