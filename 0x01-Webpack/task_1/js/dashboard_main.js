@@ -1,5 +1,5 @@
 import $ from "jquery";
-import _ from "lodash";
+const _ = require("lodash");
 
 const body = $("body")
 let count = 0;
