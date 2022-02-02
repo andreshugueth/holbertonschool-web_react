@@ -1,18 +1,18 @@
-interface Student {
+export interface Student {
   firstName: string;
   lastName: string;
   age: number;
   location: string;
 };
 
-const student1: Student = {
+export const student1: Student = {
   firstName: "Pedro",
   lastName: "Perez",
   age: 26,
   location: "Barranquilla"
 };
 
-const student2: Student = {
+export const student2: Student = {
   firstName: "Pepito",
   lastName: "Gonzales",
   age: 30,

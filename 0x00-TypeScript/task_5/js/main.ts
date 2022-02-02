@@ -1,16 +1,16 @@
-interface MajorMinorCommon {
+export interface MajorMinorCommon {
   credits: number;
 }
 
-interface MajorCredits extends MajorMinorCommon {
+export interface MajorCredits extends MajorMinorCommon {
   major: "Major";
 };
 
-interface MinorCredits extends MajorMinorCommon {
+export interface MinorCredits extends MajorMinorCommon {
   minor: "Minor";
 };
 
-function sumMajorCredits(subject1: MajorCredits, subject2: MajorCredits): MajorCredits {
+export function sumMajorCredits(subject1: MajorCredits, subject2: MajorCredits): MajorCredits {
   const op = subject1.credits + subject2.credits;
   const obj: MajorCredits = {
     credits: op,
@@ -20,7 +20,7 @@ function sumMajorCredits(subject1: MajorCredits, subject2: MajorCredits): MajorC
   return obj;
 }
 
-function sumMinorCredits(subject1: MinorCredits, subject2: MinorCredits): MinorCredits {
+export function sumMinorCredits(subject1: MinorCredits, subject2: MinorCredits): MinorCredits {
   const op = subject1.credits + subject2.credits;
   const obj: MinorCredits = {
     credits: op,

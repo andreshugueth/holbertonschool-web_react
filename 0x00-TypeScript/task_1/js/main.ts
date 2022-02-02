@@ -1,5 +1,5 @@
 // Task 1
-interface Teacher {
+export interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
@@ -8,7 +8,7 @@ interface Teacher {
   [attribute: string]: any;
 };
 
-const teacher3: Teacher = {
+export const teacher3: Teacher = {
   firstName: 'John',
   fullTimeEmployee: false,
   lastName: 'Doe',
@@ -18,11 +18,11 @@ const teacher3: Teacher = {
 console.log(teacher3);
 
 // Task 2
-interface Directors extends Teacher {
+export interface Directors extends Teacher {
   numberOfReports: number;
 };
 
-const director1: Directors = {
+export const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
@@ -43,17 +43,17 @@ const printTeacher: printTeacherFunction = (firstName: string, lastName: string)
 console.log(printTeacher("Peter", "Parker"));
 
 // Task 4
-interface Student {
+export interface Student {
   firstName: string;
   lastName: string;
 }
 
-interface ClassRoom extends Student {
+export interface ClassRoom extends Student {
   workOnHomework: () => string;
   displayName: () => string;
 }
 
-class StudentClass implements ClassRoom {
+export class StudentClass implements ClassRoom {
 
   public firstName: string;
   public lastName: string;

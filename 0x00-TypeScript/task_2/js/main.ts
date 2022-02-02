@@ -1,18 +1,18 @@
 // Task 5
-interface DirectorTeacherCommon {
+export interface DirectorTeacherCommon {
   workFromHome: () => string;
   getCoffeeBreak: () => string;
 }
 
-interface DirectorInterface extends DirectorTeacherCommon {
+export interface DirectorInterface extends DirectorTeacherCommon {
   workDirectorTasks: () => string;
 }
 
-interface TeacherInterface extends DirectorTeacherCommon {
+export interface TeacherInterface extends DirectorTeacherCommon {
   workTeacherTasks: () => string;
 }
 
-class Director implements DirectorInterface {
+export class Director implements DirectorInterface {
 
   workFromHome() {
     return "Working from home";
@@ -27,7 +27,7 @@ class Director implements DirectorInterface {
   }
 }
 
-class Teacher implements TeacherInterface {
+export class Teacher implements TeacherInterface {
   workFromHome() {
     return "Working from home";
   }
@@ -41,7 +41,7 @@ class Teacher implements TeacherInterface {
   }
 }
 
-const createEmployee = (salary: number | string): Director | Teacher => {
+export const createEmployee = (salary: number | string): Director | Teacher => {
   if (typeof salary === "number") {
     if (salary < 500) {
       return new Teacher;
@@ -54,7 +54,7 @@ console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
 
 // Task 6
-function isDirector(employee: Director | Teacher) {
+export function isDirector(employee: Director | Teacher) {
   if ("workDirectorTasks" in employee) {
     console.log(employee.workDirectorTasks());
   } else {
@@ -62,16 +62,16 @@ function isDirector(employee: Director | Teacher) {
   }
 }
 
-function executeWork(employee: Director | Teacher) {
+export function executeWork(employee: Director | Teacher) {
   isDirector(employee);
 }
 
 executeWork(createEmployee(200));
 executeWork(createEmployee(1000));
 
-type Subjects = "Math" | "History";
+export type Subjects = "Math" | "History";
 
-const teachClass = (todayClass: Subjects): string => {
+export const teachClass = (todayClass: Subjects): string => {
   if (todayClass === "Math") {
     return "Teaching Math"
   } else {
