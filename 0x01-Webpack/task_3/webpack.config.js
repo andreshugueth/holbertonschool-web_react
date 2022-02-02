@@ -2,27 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
-const rulesForCss = {
-  test: /\.css$/i,
-  use: ['style-loader', 'css-loader']
-}
-
-const rulesForImages = {
-  test: /\.(gif|png|svg|jpe?g)$/i,
-  use: [
-    'file-loader',
-    {
-      loader: 'image-webpack-loader',
-      options: {
-        bypassOnDebug: true,
-        disable: true
-      }
-    }
-  ]
-}
-
-const rules = [rulesForCss, rulesForImages];
-
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
@@ -35,14 +14,25 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
-  optimization: {
-    runtimeChunk: 'all'
-  },
   plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
   devServer: {
     static: path.join(__dirname, './public'),
     compress: true,
     port: 8564,
   },
-  module: { rules }
+  optimization: {
+    runtimeChunk: 'all'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
+      },
+    ]
+  }
 };
