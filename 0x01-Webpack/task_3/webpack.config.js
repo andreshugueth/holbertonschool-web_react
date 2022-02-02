@@ -1,5 +1,5 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 const rulesForCss = {
@@ -36,9 +36,7 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
   optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
+    runtimeChunk: 'all'
   },
   plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
   performance: {
