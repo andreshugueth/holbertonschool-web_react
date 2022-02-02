@@ -39,11 +39,6 @@ module.exports = {
     runtimeChunk: 'all'
   },
   plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
-  performance: {
-    hints: false,
-    maxAssetSize: 1000000,
-    maxEntrypointSize: 1000000,
-  },
   devServer: {
     static: path.join(__dirname, './public'),
     compress: true,
