@@ -12,7 +12,7 @@ const BodySection = ({ title, children }) => {
 
 BodySection.propTypes = {
     title: PropTypes.string,
-    children: PropTypes.children
+    children: PropTypes.node
 }
 
 BodySection.defaultProps = {
