@@ -7,7 +7,7 @@ import Login from "../Login/Login";
 import Notifications from "../Notifications/Notification";
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from "../utils/utils";
-import BodySection from '../BodySection/BodySection'
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom'
 
 class App extends Component {
 
@@ -72,7 +72,11 @@ class App extends Component {
       <>
         <Notifications listNotifications={this.listNotifications} />
         <Header />
-        {this.props.isLoggedIn ? <CourseList listCourses={this.listCourses} /> : <Login />}
+        {this.props.isLoggedIn ? <CourseList listCourses={this.listCourses} /> : <Login />}{
+          this.props.isLoggedIn
+            ? <BodySectionWithMarginBottom title="Course list"><CourseList listCourses={this.listCourses} /></BodySectionWithMarginBottom>
+            : <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>
+        }
         <Footer />
       </>
     )
